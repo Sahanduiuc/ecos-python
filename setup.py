@@ -45,7 +45,7 @@ def get_ext():
                                  'ecos/src/wright_omega.c'
                       ] + glob('ecos/external/amd/src/*.c')
                       + glob('ecos/ecos_bb/*.c'))       # glob bb source files
-    return _ecos
+    return [_ecos]
 
 setup(
     name = 'ecos',
@@ -58,7 +58,7 @@ setup(
     license = "GPLv3",
     package_dir = {'': 'src'},
     py_modules = ['ecos'],
-    ext_modules = [get_ext()],
+    ext_modules = get_ext(),
     install_requires = [
         "numpy >= 1.6",
         "scipy >= 0.9"
